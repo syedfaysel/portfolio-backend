@@ -64,3 +64,4 @@ temp/
 *.postman_collection.json
 *.postman_environment.json
 postman/
+.vercel
