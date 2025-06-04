@@ -6,6 +6,9 @@ const blogService = new BlogService();
 export class BlogController {
   async createBlog(req: Request, res: Response) {
     try {
+      if (!req.user) {
+        return res.status(401).json({ error: 'Unauthorized' });
+      }
       const { title, content, slug, image } = req.body;
       const authorId = req.user.id;
       const blog = await blogService.createBlog({
